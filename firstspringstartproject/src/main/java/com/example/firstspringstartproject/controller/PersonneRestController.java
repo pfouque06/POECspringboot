@@ -3,6 +3,8 @@ package com.example.firstspringstartproject.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,19 +12,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.firstspringstartproject.dao.AdresseRepository;
 import com.example.firstspringstartproject.dao.PersonneRepository;
 import com.example.firstspringstartproject.model.Adresse;
 import com.example.firstspringstartproject.model.Personne;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Controller
+@RestController
 public class PersonneRestController {
 	
 	// in order to convert object to json
-	private static ObjectMapper mapper = new ObjectMapper();
+	//private static ObjectMapper mapper = new ObjectMapper();
 	
 	@Autowired
 	private AdresseRepository adresseRepository;
@@ -74,6 +77,16 @@ public class PersonneRestController {
 //		return p.toString();
 //	}
 
+	@GetMapping("/chercherPersonnes")
+	public Page<Personne> chercher(
+			@RequestParam(name="mc", defaultValue = "") String mc,
+			@RequestParam(name="page", defaultValue = "0") int page,
+			@RequestParam(name="size", defaultValue = "5") int size) {
+		Page<Personne> p = personneRepository.chercher(mc, new PageRequest(page, size));
+		return p;
+		
+	}
+	
 	@PostMapping("/personnes")
 	@ResponseBody
 	public Personne addPersonne(@RequestBody Personne personne) {
