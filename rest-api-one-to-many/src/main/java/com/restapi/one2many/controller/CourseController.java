@@ -21,7 +21,7 @@ import com.restapi.one2many.exception.ResourceNotFoundException;
 @RequestMapping("/api/v1")
 public class CourseController {
 	@Autowired
-	private AdresseRepository courseRepository;
+	private CourseRepository courseRepository;
 	@Autowired
 	private InstructorRepository instructorRepository;
 
