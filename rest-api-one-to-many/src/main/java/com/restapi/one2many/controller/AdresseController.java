@@ -28,6 +28,25 @@ public class AdresseController {
 	private AdresseRepository adresseRepository;
 	@Autowired
 	private PersonneRepository personneRepository;
+	
+	@GetMapping("/adresses")
+	public List<Adresse> getAdresses() {
+		
+		return adresseRepository.findAll();
+	}
+
+	@GetMapping("/adresses/{adresseId}")
+	public Adresse getAdressesById(
+			@PathVariable("adresseId") Long adresseId) throws ResourceNotFoundException {
+		
+		if (!adresseRepository.existsById(adresseId))
+			throw new ResourceNotFoundException("Adresse "+adresseId+" not found");
+		
+		Adresse adresse = adresseRepository.getOne(adresseId);
+		System.out.println(adresse);
+		//return null;
+		return adresse;
+	}
 
 	@GetMapping("/personnes/{personneId}/adresses")
 	public List<Adresse> getAdressesByPersonne(

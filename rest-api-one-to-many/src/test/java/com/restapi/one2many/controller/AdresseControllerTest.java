@@ -134,7 +134,6 @@ class AdresseControllerTest {
 		adresses.add(a3);
 		t3.setAdresses(adresses);
 		Personne tDB = entityManager.persist(t3);
-		Adresse aDB = tDB.getAdresses().get(0);
 				
 		Adresse a4 = new Adresse("a4", "a4", "a4");
 		adresses.add(a4);
