@@ -1,6 +1,5 @@
 package com.restapi.many2one.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,7 +41,7 @@ public class Instructor extends AuditModel {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.courses = courses;
+//		this.courses = courses;
 	}
 
 	public Long getId() {
