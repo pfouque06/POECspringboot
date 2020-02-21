@@ -1,4 +1,4 @@
-package com.restapi.many2one.controller;
+package com.restapi.one2many.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,13 +15,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.restapi.many2one.dao.PersonneRepository;
-import com.restapi.many2one.entities.Personne;
-import com.restapi.many2one.exception.ResourceNotFoundException;
+import com.restapi.one2many.dao.AdresseRepository;
+import com.restapi.one2many.dao.PersonneRepository;
+import com.restapi.one2many.entities.Adresse;
+import com.restapi.one2many.entities.Personne;
+import com.restapi.one2many.exception.ResourceNotFoundException;
 
 @RestController
 @RequestMapping("/api/v1")
 public class PersonneController {
+	@Autowired
+	private AdresseRepository adresseRepository;
 	@Autowired
 	private PersonneRepository personneRepository;
 
@@ -34,13 +38,26 @@ public class PersonneController {
 	public ResponseEntity<Personne> getPersonneById(@PathVariable(value = "id") Long personneId)
 			throws ResourceNotFoundException {
 		Personne user = personneRepository.findById(personneId)
-				.orElseThrow(() -> new ResourceNotFoundException("Personne not found :: " + personneId));
+				.orElseThrow(() -> new ResourceNotFoundException("Personne not found : " + personneId));
 		return ResponseEntity.ok().body(user);
 	}
 
 	@PostMapping("/personnes")
 	public Personne createPersonne(@Valid @RequestBody Personne personne) {
-		return personneRepository.save(personne);
+		List<Adresse> adresses = personne.getAdresses();
+		for (Adresse adresse : adresses) {
+			Adresse adr = null;
+			if (adresse.getId() != null) {
+				adr = adresseRepository.findById(adresse.getId()).orElse(null);
+			} else {
+				adr = adresseRepository.save(adresse);
+			}
+			adresses.set(adresses.indexOf(adresse), adr);
+		}
+		
+		personne.setAdresses(adresses);
+		//return personneRepository.save(personne);
+		return personneRepository.saveAndFlush(personne);
 	}
 
 	@PutMapping("/personnes/{id}")

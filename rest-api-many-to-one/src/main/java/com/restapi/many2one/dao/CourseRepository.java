@@ -1,10 +1,12 @@
-package com.restapi.one2many.dao;
+package com.restapi.many2one.dao;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
+
+import com.restapi.many2one.entities.Course;
 
 
 

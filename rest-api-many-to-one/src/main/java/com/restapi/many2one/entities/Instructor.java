@@ -1,25 +1,18 @@
-package com.restapi.one2many.entities;
+package com.restapi.many2one.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "instructor")
 public class Instructor extends AuditModel {
-	/**
-	* 
-	*/
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +24,9 @@ public class Instructor extends AuditModel {
 	private String lastName;
 	@Column(name = "email")
 	private String email;
-	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.EAGER)
-	@Fetch(FetchMode.SELECT)
-	private List<Course> courses = new ArrayList<>();
+//	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.EAGER)
+//	@Fetch(FetchMode.SELECT)
+//	private List<Course> courses = new ArrayList<>();
 
 	public Instructor() {
 	}
@@ -83,4 +76,16 @@ public class Instructor extends AuditModel {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+//	public List<Course> getCourses() {
+//		return courses;
+//	}
+//
+//
+//	public void setCourses(List<Course> courses) {
+//		this.courses = courses;
+//	}
+
+	
 }

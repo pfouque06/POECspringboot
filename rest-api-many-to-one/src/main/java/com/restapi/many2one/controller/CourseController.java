@@ -1,4 +1,4 @@
-package com.restapi.one2many.controller;
+package com.restapi.many2one.controller;
 
 import java.util.List;
 import javax.validation.Valid;
@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.restapi.one2many.dao.AdresseRepository;
-import com.restapi.one2many.dao.InstructorRepository;
-import com.restapi.one2many.entities.Course;
-import com.restapi.one2many.exception.ResourceNotFoundException;
+
+import com.restapi.many2one.dao.CourseRepository;
+import com.restapi.many2one.dao.InstructorRepository;
+import com.restapi.many2one.entities.Course;
+import com.restapi.many2one.exception.ResourceNotFoundException;
 
 @RestController
 @RequestMapping("/api/v1")

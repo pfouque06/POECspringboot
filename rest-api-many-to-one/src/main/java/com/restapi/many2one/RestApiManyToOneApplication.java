@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@ActiveProfiles("prod")
 public class RestApiManyToOneApplication {
 
 	public static void main(String[] args) {

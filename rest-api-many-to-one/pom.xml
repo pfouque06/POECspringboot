@@ -8,10 +8,10 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.restapi.many2one</groupId>
-	<artifactId>rest-api-many-to-one</artifactId>
+	<groupId>com.restapi.one2many</groupId>
+	<artifactId>rest-api-one-to-many</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rest-api-many-to-one</name>
+	<name>rest-api-one-to-many</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

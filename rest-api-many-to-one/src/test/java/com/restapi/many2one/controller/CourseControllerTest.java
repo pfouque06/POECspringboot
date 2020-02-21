@@ -1,4 +1,4 @@
-package com.restapi.one2many.controller;
+package com.restapi.many2one.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,19 +12,21 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.restapi.one2many.dao.AdresseRepository;
-import com.restapi.one2many.dao.InstructorRepository;
-import com.restapi.one2many.entities.Course;
-import com.restapi.one2many.entities.Instructor;
+import com.restapi.many2one.dao.CourseRepository;
+import com.restapi.many2one.dao.InstructorRepository;
+import com.restapi.many2one.entities.Course;
+import com.restapi.many2one.entities.Instructor;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@ActiveProfiles("test")
 class CourseControllerTest {
 	
 	@Autowired
-	private AdresseRepository courseRepository;
+	private CourseRepository courseRepository;
 	@Autowired
 	private InstructorRepository instructorRepository;
 	@Autowired
@@ -37,11 +39,13 @@ class CourseControllerTest {
 		
 		Course co1 = new Course("co1");
 		co1.setInstructor(t1);
-		courseRepository.save(co1);
+		//courseRepository.save(co1);
+		entityManager.persist(co1);
 		
 		Course co2 = new Course("co2");
 		co2.setInstructor(t1);
-		courseRepository.save(co2);
+		//courseRepository.save(co2);
+		entityManager.persist(co2);
 		
 		Instructor tDB = instructorRepository.getOne(t1.getId());
 		List<Course> tableDB = courseRepository.findByInstructorId(tDB.getId());
@@ -58,9 +62,12 @@ class CourseControllerTest {
 	void testSave() {
 		Instructor t1 = new Instructor("t1", "t1", "t1");
 		entityManager.persist(t1);
+
 		Course co1 = new Course("co1");
 		co1.setInstructor(t1);
-		courseRepository.save(co1);
+		//courseRepository.save(co1);
+		entityManager.persist(co1);
+		
 		Instructor tDB = instructorRepository.getOne(t1.getId());
 		List<Course> tableDB = courseRepository.findByInstructorId(tDB.getId());
 		List<Course> table = Arrays.asList(co1);
@@ -73,11 +80,15 @@ class CourseControllerTest {
 	void testUpdateCourse() {
 		Instructor t1 = new Instructor("t1", "t1", "t1");
 		entityManager.persist(t1);
+
 		Course co1 = new Course("co1");
 		co1.setInstructor(t1);
-		courseRepository.save(co1);
+		//courseRepository.save(co1);
+		entityManager.persist(co1);
+
 		Instructor tDB = instructorRepository.getOne(t1.getId());
 		List<Course> tableDB = courseRepository.findByInstructorId(tDB.getId());
+		assertThat(tableDB.size()).isEqualTo(1);
 		Course co2 = tableDB.get(0);
 		co2.setTitle("co2");
 		entityManager.persist(co2);
@@ -89,19 +100,19 @@ class CourseControllerTest {
 	void testDeleteCourse() {
 		Instructor t3 = new Instructor("t3", "t3", "t3");
 		Instructor tDB = entityManager.persist(t3);
-		
+
 		//Course co1 = new Course("co1", t3);
 		Course co1 = new Course("co1");
 		co1.setInstructor(t3);
 		Course cDB = entityManager.persist(co1);
-		
+
 		Course co2 = new Course("co2", t3);
 		//Course co2 = new Course("co2");
 		//co2.setInstructor(t3);
 		entityManager.persist(co2);
-		
+
 		entityManager.remove(cDB);  
-		
+
 		//Instructor tDB = instructorRepository.getOne(t3.getId());
 		List<Course> tableDB = courseRepository.findByInstructorId(tDB.getId());
 		List<Course> table = new ArrayList<>();

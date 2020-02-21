@@ -1,4 +1,4 @@
-package com.restapi.one2many.entities;
+package com.restapi.many2one.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

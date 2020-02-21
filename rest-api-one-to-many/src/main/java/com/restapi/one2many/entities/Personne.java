@@ -1,4 +1,4 @@
-package com.restapi.many2one.entities;
+package com.restapi.one2many.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ import org.hibernate.annotations.FetchMode;
 @Table(name = "personne")
 public class Personne extends AuditModel {
 
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -32,6 +33,7 @@ public class Personne extends AuditModel {
 	private int age;
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.EAGER)
 	@Fetch(FetchMode.SELECT)
+	//@JoinColumn(name = "personneId")
 	private List<Adresse> adresses = new ArrayList<>();
 
 	public Personne() {

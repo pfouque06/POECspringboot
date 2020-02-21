@@ -3,10 +3,10 @@ package com.restapi.many2one.dao;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
-import com.restapi.many2one.entities.Personne;
+import com.restapi.many2one.entities.Instructor;
 
 @Repository
-public interface PersonneRepository extends JpaRepository <Personne, Long> {
+public interface InstructorRepository extends JpaRepository <Instructor, Long> {
 
 	//List<Instructor> findByNomAndPrenom(String nom, String prenom);
 	//List<Instructor> findByNom(String nom);

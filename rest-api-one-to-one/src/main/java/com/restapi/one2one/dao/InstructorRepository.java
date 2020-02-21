@@ -1,8 +1,11 @@
 package com.restapi.one2one.dao;
 
 import org.springframework.data.jpa.repository.*;
+import org.springframework.stereotype.Repository;
+
 import com.restapi.one2one.entities.Instructor;
 
+@Repository
 public interface InstructorRepository extends JpaRepository <Instructor, Long> {
 
 	//List<Instructor> findByNomAndPrenom(String nom, String prenom);
