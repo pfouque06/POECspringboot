@@ -84,9 +84,17 @@ public class Personne extends AuditModel {
 		return adresses;
 	}
 
-	
 	public void setAdresses(List<Adresse> adresses) {
 		this.adresses = adresses;
+	}
+
+	public boolean addAdress(Adresse adresse) {
+		return adresses.add(adresse);
+	}
+
+
+	public boolean removeAdress(Object adresse) {
+		return adresses.remove(adresse);
 	}
 
 	@Override
