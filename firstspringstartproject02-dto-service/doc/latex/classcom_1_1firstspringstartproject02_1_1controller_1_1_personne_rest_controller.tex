@@ -1,0 +1,100 @@
+\doxysection{com.\+firstspringstartproject02.\+controller.\+Personne\+Rest\+Controller Class Reference}
+\label{classcom_1_1firstspringstartproject02_1_1controller_1_1_personne_rest_controller}\index{com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Collection$<$ \textbf{ Personne} $>$ \textbf{ get\+Personnes} ()
+\item 
+Response\+Entity$<$ \textbf{ Personne} $>$ \textbf{ get\+Personne\+By\+Id} (@Path\+Variable Long id)
+\item 
+\textbf{ Personne} \textbf{ save} (@Valid @Request\+Body \textbf{ Personne} personne)
+\item 
+Response\+Entity$<$ \textbf{ Personne} $>$ \textbf{ update\+Personne} (@Path\+Variable(value=\char`\"{}id\char`\"{}) Long id, @Request\+Body \textbf{ Personne} personne)
+\item 
+void \textbf{ delete\+Personne} (@Path\+Variable(value=\char`\"{}id\char`\"{}) Long id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Class \doxyref{Personne\+Rest\+Controller}{p.}{classcom_1_1firstspringstartproject02_1_1controller_1_1_personne_rest_controller}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classcom_1_1firstspringstartproject02_1_1controller_1_1_personne_rest_controller_a6b18346bcbec8ccb28f1b806c7c6f61d}} 
+\index{com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}!deletePersonne@{deletePersonne}}
+\index{deletePersonne@{deletePersonne}!com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}}
+\doxysubsubsection{deletePersonne()}
+{\footnotesize\ttfamily void com.\+firstspringstartproject02.\+controller.\+Personne\+Rest\+Controller.\+delete\+Personne (\begin{DoxyParamCaption}\item[{@Path\+Variable(value=\char`\"{}id\char`\"{}) Long}]{id }\end{DoxyParamCaption})}
+
+Delete personne.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the id \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classcom_1_1firstspringstartproject02_1_1controller_1_1_personne_rest_controller_aafdf99ca7ba3490ad98b3404b71709c8}} 
+\index{com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}!getPersonneById@{getPersonneById}}
+\index{getPersonneById@{getPersonneById}!com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}}
+\doxysubsubsection{getPersonneById()}
+{\footnotesize\ttfamily Response\+Entity$<$\textbf{ Personne}$>$ com.\+firstspringstartproject02.\+controller.\+Personne\+Rest\+Controller.\+get\+Personne\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id }\end{DoxyParamCaption})}
+
+Gets the personne by id.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the personne by id 
+\end{DoxyReturn}
+\mbox{\label{classcom_1_1firstspringstartproject02_1_1controller_1_1_personne_rest_controller_a10521eb6665eb671912b3e54bc036013}} 
+\index{com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}!getPersonnes@{getPersonnes}}
+\index{getPersonnes@{getPersonnes}!com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}}
+\doxysubsubsection{getPersonnes()}
+{\footnotesize\ttfamily Collection$<$\textbf{ Personne}$>$ com.\+firstspringstartproject02.\+controller.\+Personne\+Rest\+Controller.\+get\+Personnes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the personnes.
+
+\begin{DoxyReturn}{Returns}
+the personnes 
+\end{DoxyReturn}
+\mbox{\label{classcom_1_1firstspringstartproject02_1_1controller_1_1_personne_rest_controller_aa4825d02b6090162cf7ba6b9e264947d}} 
+\index{com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}!save@{save}}
+\index{save@{save}!com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}}
+\doxysubsubsection{save()}
+{\footnotesize\ttfamily \textbf{ Personne} com.\+firstspringstartproject02.\+controller.\+Personne\+Rest\+Controller.\+save (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \textbf{ Personne}}]{personne }\end{DoxyParamCaption})}
+
+Save.
+
+
+\begin{DoxyParams}{Parameters}
+{\em personne} & the personne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the personne 
+\end{DoxyReturn}
+\mbox{\label{classcom_1_1firstspringstartproject02_1_1controller_1_1_personne_rest_controller_a8b862f76708b5317602d66c6aeba1a1c}} 
+\index{com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}!updatePersonne@{updatePersonne}}
+\index{updatePersonne@{updatePersonne}!com.firstspringstartproject02.controller.PersonneRestController@{com.firstspringstartproject02.controller.PersonneRestController}}
+\doxysubsubsection{updatePersonne()}
+{\footnotesize\ttfamily Response\+Entity$<$\textbf{ Personne}$>$ com.\+firstspringstartproject02.\+controller.\+Personne\+Rest\+Controller.\+update\+Personne (\begin{DoxyParamCaption}\item[{@Path\+Variable(value=\char`\"{}id\char`\"{}) Long}]{id,  }\item[{@Request\+Body \textbf{ Personne}}]{personne }\end{DoxyParamCaption})}
+
+Update personne.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the id \\
+\hline
+{\em personne} & the personne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the response entity 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Admin/\+Desktop/\+P\+O\+E\+C\+\_\+\+Java/sources/sprintboot/firstspringstartproject02-\/dto-\/service/src/main/java/com/firstspringstartproject02/controller/\textbf{ Personne\+Rest\+Controller.\+java}\end{DoxyCompactItemize}
