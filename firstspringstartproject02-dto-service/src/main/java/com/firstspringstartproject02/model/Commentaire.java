@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.firstspringstartproject02.dto.CommentaireDto;
-import com.firstspringstartproject02.dto.PersonneDto;
 
 /**
  * @author P. Fouque

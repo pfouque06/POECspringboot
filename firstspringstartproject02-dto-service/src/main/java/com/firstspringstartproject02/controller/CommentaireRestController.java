@@ -1,6 +1,5 @@
 package com.firstspringstartproject02.controller;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,14 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.firstspringstartproject02.dao.AdresseRepository;
-import com.firstspringstartproject02.dao.CommentaireRepository;
-import com.firstspringstartproject02.dao.PersonneRepository;
 import com.firstspringstartproject02.exceptions.ResourceNotFoundException;
-import com.firstspringstartproject02.model.Adresse;
 import com.firstspringstartproject02.model.Commentaire;
-import com.firstspringstartproject02.model.Personne;
 import com.firstspringstartproject02.service.CommentaireService;
 
 @CrossOrigin(origins = "*")
